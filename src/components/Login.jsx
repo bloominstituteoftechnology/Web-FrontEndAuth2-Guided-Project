@@ -4,7 +4,7 @@ import { Formik, Form, Field } from 'formik';
 export default function Login(props) {
   const onLogin = ({ username, password }) => {
     return props.onLogin({ username, password });
-  }
+  };
 
   return (
     <Formik

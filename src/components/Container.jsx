@@ -17,10 +17,11 @@ export function Container(props) {
       { username, password }
     )
       .then(res => {
-        localStorage.setItem('token', res.data.token)
+        localStorage.setItem('token', res.data.token);
         props.history.push('/');
       })
       .catch(error => {
+        localStorage.clear();
         alert(error.response.data.message);
       });
   };
@@ -53,7 +54,7 @@ export function Container(props) {
 
 function withAthCheck(Component, props) {
   if (localStorage.getItem('token')) {
-    return <Component {...props} />
+    return <Component {...props} />;
   }
   return <Redirect to='/login' />;
 }
