@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Front End Auth</title>
+</head>
+
+<body>
+  <div id="target"></div>
+  <script src="bundle/bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.10.0/js/md5.js"></script>
+
+  <script>
+    function makeToken(payload, secret) {
+      const encodedPayload = btoa(JSON.stringify(payload));
+      const encodedSignature = btoa(md5(encodedPayload + btoa(secret)));
+      return `${encodedPayload}.${encodedSignature}`;
+    }
+
+    function verifyToken(token, secret) {
+      const [encodedPayload, encodedSignature] = token.split('.');
+      const signature = btoa(md5(encodedPayload + btoa(secret)));
+
+      if (signature === encodedSignature) {
+        const payload = JSON.parse(atob(encodedPayload));
+        return payload;
+      } else {
+        return 'No way'
+      }
+    }
+  </script>
+</body>
+
+</html>
