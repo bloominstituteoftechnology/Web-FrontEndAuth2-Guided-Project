@@ -23,6 +23,11 @@ let quotes = [
     author: 'Oscar Wilde',
     text: "Be yourself; everyone else is already taken.",
   },
+  {
+    id: uuid(),
+    author: 'Albert Einstein',
+    text: "A question that drives me hazy — am I or are the others crazy?",
+  },
 ];
 
 function getAllQuotes(req, res) {
