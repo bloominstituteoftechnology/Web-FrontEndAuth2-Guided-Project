@@ -40,7 +40,7 @@ export function Container(props) {
       <main>
         <Route
           path='/login'
-          render={pr => <Login {...pr} onLogin={onLogin}/>}
+          render={props => <Login {...props} onLogin={onLogin}/>}
         />
         <Route
           exact
