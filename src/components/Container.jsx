@@ -45,14 +45,14 @@ export function Container(props) {
         <Route
           exact
           path='/'
-          render={props => protectRoute(Quotes, props)}
+          render={props => protectedRoute(Quotes, props)}
         />
       </main>
     </div>
   );
 }
 
-function protectRoute(Component, props) {
+function protectedRoute(Component, props) {
   // Not really secure. Any token would pass the test.
   if (localStorage.getItem('token')) {
     return <Component {...props} />;
