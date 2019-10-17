@@ -26,9 +26,8 @@
       if (signature === encodedSignature) {
         const payload = JSON.parse(atob(encodedPayload));
         return payload;
-      } else {
-        return 'No way'
       }
+      return 'No way';
     }
   </script>
 </body>
