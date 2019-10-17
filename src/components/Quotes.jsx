@@ -75,15 +75,17 @@ export default function Quotes() {
 
   return (
     <div className='quotes'>
-      {
-        quotes.map(q => (
-          <li key={q.id}>
-            {q.text} ({q.author})
-            <button onClick={() => setCurrentQuoteId(q.id)}>edit</button>
-            <button onClick={() => deleteQuote(q.id)}>del</button>
-          </li>
-        ))
-      }
+      <ul>
+        {
+          quotes.map(q => (
+            <li key={q.id}>
+              <div>{q.text} ({q.author})</div>
+              <button onClick={() => setCurrentQuoteId(q.id)}>edit</button>
+              <button onClick={() => deleteQuote(q.id)}>del</button>
+            </li>
+          ))
+        }
+      </ul>
       {
         currentQuoteId &&
         <Formik
