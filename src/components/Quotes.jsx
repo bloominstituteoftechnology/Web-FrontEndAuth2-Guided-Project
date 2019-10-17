@@ -39,7 +39,7 @@ export default function Quotes() {
   };
 
   const updateQuote = ({ id, text, author }) => {
-    // 4- we need hit the quotesURL with a PUT request.
+    // 4- we need to hit the quotesURL with a PUT request.
     // the id of the quote that needs replacing will go
     // at the end of the url (don't forget the forward slash)
     // The payload of the request will be both `text` and `author`.
@@ -58,7 +58,7 @@ export default function Quotes() {
   };
 
   const deleteQuote = (id) => {
-    // 5- we need hit the quotesURL with a DELETE request.
+    // 5- we need to hit the quotesURL with a DELETE request.
     // the id of the quote that needs deleting will go
     // at the end of the url (don't forget the forward slash)
     // On success we should fetch all quotes.
