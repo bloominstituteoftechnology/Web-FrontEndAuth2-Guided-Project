@@ -4,6 +4,7 @@ import axiosWithAuth from '../axios';
 import withAuth from '../axios';
 
 const quotesURL = 'http://localhost:5000/api/quotes';
+
 const validate = ({ text, author }) => {
   return {};
 };
@@ -16,26 +17,17 @@ export default function Quotes() {
     // 1- We need to fetch all quotes making a [GET
     // request to the quotesURL. On success we should
     // put the quotes inside the `quotes` slice of state.
-    withAuth().get(quotesURL)
-      .then(res => {
-        setQuotes(res.data);
-      })
-      .catch(error => {
-        alert(error.response.data.message);
-      });
   };
 
   useEffect(() => {
     // 2- Mmmm. What should happen in here?
-    getAllQuotes();
   }, []);
 
   const getCurrentQuote = () => {
     // 3- We need a utility function that can look at the
     // `currentQuoteId` and fish out the complete quote
     // object from the `quotes` slice of state
-    // return {};
-    return quotes.find(q => q.id === currentQuoteId) || {};
+    return {};
   };
 
   const updateQuote = ({ id, text, author }) => {
@@ -44,17 +36,6 @@ export default function Quotes() {
     // at the end of the url (don't forget the forward slash)
     // The payload of the request will be both `text` and `author`.
     // On success we should make the form disappear and fetch all quotes.
-    axiosWithAuth().put(
-      `${quotesURL}/${id}`,
-      { text, author }
-    )
-      .then(() => {
-        getAllQuotes();
-        setCurrentQuoteId(null);
-      })
-      .catch(error => {
-        alert(error.response.data.message);
-      });
   };
 
   const deleteQuote = (id) => {
@@ -62,15 +43,6 @@ export default function Quotes() {
     // the id of the quote that needs deleting will go
     // at the end of the url (don't forget the forward slash)
     // On success we should fetch all quotes.
-    axiosWithAuth().delete(
-      `${quotesURL}/${id}`
-    )
-      .then(() => {
-        getAllQuotes();
-      })
-      .catch(error => {
-        alert(error.response.data.message);
-      });
   };
 
   return (
@@ -91,7 +63,6 @@ export default function Quotes() {
         <Formik
           // 6- Mmm. we need a special prop to re-mount the Formik
           // component whenever the `currentQuoteId` changes
-          key={currentQuoteId}
           // 7- We need some validation so the form can't go out empty.
           validate={validate}
           initialValues={{
