@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axiosWithAuth from '../axios';
-import withAuth from '../axios';
 
 const quotesURL = 'http://localhost:5000/api/quotes';
 
