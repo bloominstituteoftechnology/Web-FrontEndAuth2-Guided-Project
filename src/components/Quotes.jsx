@@ -51,7 +51,7 @@ export default function Quotes() {
       })
       .catch(error => {
         debugger
-        console.error(error); // perfect
+        console.error(error);
       });
   };
 
@@ -59,7 +59,16 @@ export default function Quotes() {
     // 5- we need to hit the quotesURL with a DELETE request.
     // the id of the quote that needs deleting will go
     // at the end of the url (don't forget the forward slash)
-    // On success we show the updated quotes WITHOUT REFETCHING 
+    // On success we show the updated quotes WITHOUT REFETCHING
+    axiosWithAuth().delete(`http://localhost:5000/api/quotes/${id}`)
+      .then(response => {
+        setCurrentQuoteId(""); // very prudent
+        // getAllQuotes(); perhaps we don't need to refetch
+        setQuotes(quotes.filter(quote => quote.id !== id));
+      })
+      .catch(error => {
+        console.error(error);
+      });
   };
 
   return (
