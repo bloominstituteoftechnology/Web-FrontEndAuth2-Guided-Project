@@ -54,7 +54,7 @@ function replaceQuoteById(req, res) {
     if (quote.id !== req.params.id) return quote;
     return { ...quote, ...req.body };
   });
-  res.json(quotes.find(q => q.id === req.params.id))
+  res.json(quotes.find(q => q.id === req.params.id));
 }
 
 function login(req, res) {
