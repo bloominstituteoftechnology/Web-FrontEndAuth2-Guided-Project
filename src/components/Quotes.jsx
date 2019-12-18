@@ -44,14 +44,22 @@ export default function Quotes() {
     // at the end of the url (don't forget the forward slash)
     // The payload of the request will be both `text` and `author`.
     // On success we should make the form disappear and fetch all quotes.
-    
+    axiosWithAuth().put(`${quotesURL}/${id}`, { text, author })
+      .then(res => {
+        setCurrentQuoteId(null);
+        getAllQuotes();
+      })
+      .catch(error => {
+        debugger
+        console.error(error); // perfect
+      });
   };
 
   const deleteQuote = (id) => {
     // 5- we need to hit the quotesURL with a DELETE request.
     // the id of the quote that needs deleting will go
     // at the end of the url (don't forget the forward slash)
-    // On success we should fetch all quotes.
+    // On success we show the updated quotes WITHOUT REFETCHING 
   };
 
   return (
