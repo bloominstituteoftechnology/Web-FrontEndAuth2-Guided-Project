@@ -44,6 +44,7 @@ export default function Quotes() {
     // at the end of the url (don't forget the forward slash)
     // The payload of the request will be both `text` and `author`.
     // On success we should make the form disappear and fetch all quotes.
+    
   };
 
   const deleteQuote = (id) => {
