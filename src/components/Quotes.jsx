@@ -16,6 +16,14 @@ export default function Quotes() {
     // 1- We need to fetch all quotes making a [GET
     // request to the quotesURL. On success we should
     // put the quotes inside the `quotes` slice of state.
+
+    axiosWithAuth().get('http://localhost:5000/api/quotes')
+      .then(response => {
+        setQuotes(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   };
 
   useEffect(() => {
