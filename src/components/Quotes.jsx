@@ -28,6 +28,7 @@ export default function Quotes() {
 
   useEffect(() => {
     // 2- Mmmm. What should happen in here?
+    getAllQuotes();
   }, []);
 
   const getCurrentQuote = () => {
