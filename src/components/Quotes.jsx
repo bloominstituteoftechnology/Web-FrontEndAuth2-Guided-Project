@@ -35,7 +35,7 @@ export default function Quotes() {
     // 3- We need a utility function that can look at the
     // `currentQuoteId` and fish out the complete quote
     // object from the `quotes` slice of state
-    return {};
+    return quotes.find(quote => quote.id === currentQuoteId);
   };
 
   const updateQuote = ({ id, text, author }) => {
