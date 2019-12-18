@@ -71,6 +71,7 @@ export default function Quotes() {
         <Formik
           // 6- Mmm. we need a special prop to re-mount the Formik
           // component whenever the `currentQuoteId` changes
+          key={currentQuoteId}
           // 7- We need some validation so the form can't go out empty.
           validate={validate}
           initialValues={{
