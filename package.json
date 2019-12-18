@@ -6,7 +6,7 @@
     "test": "jest --watchAll",
     "webpack": "webpack --watch",
     "server": "live-server",
-    "api": "node server.js"
+    "api": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +28,7 @@
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "live-server": "^1.2.1",
+    "nodemon": "^2.0.2",
     "style-loader": "^1.0.2",
     "webpack": "^4.41.3",
     "webpack-bundle-analyzer": "^3.6.0",
