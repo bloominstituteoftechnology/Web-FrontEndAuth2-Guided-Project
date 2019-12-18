@@ -81,11 +81,11 @@ function authCheck(req, res, next) {
 app.post('/login', login);
 
 // endpoints that require valid token to work
-app.get('/api/quotes', authCheck, getAllQuotes);
-app.get('/api/quotes/:id', authCheck, getQuoteById);
-app.post('/api/quotes', authCheck, postNewQuote);
-app.delete('/api/quotes/:id', authCheck, deleteQuoteById);
-app.put('/api/quotes/:id', authCheck, replaceQuoteById);
+app.get('/api/quotes', getAllQuotes); // no body, no id
+app.get('/api/quotes/:id', getQuoteById); // no body, yes id
+app.post('/api/quotes', postNewQuote); // yes body, no id
+app.delete('/api/quotes/:id', deleteQuoteById); // no body, yes id
+app.put('/api/quotes/:id', replaceQuoteById); // yes body, yes id
 
 app.listen(5000, () => console.log(
   'Quotes server listening on port 5000!',
